@@ -1,0 +1,245 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'typescript' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose cache add [ 'typescript', null ]
+5 verbose cache add name=undefined spec="typescript" args=["typescript",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'typescript',
+6 verbose parsed url   path: 'typescript',
+6 verbose parsed url   href: 'typescript' }
+7 silly lockFile fb9da861-typescript typescript
+8 verbose lock typescript /home/edulix/.npm/fb9da861-typescript.lock
+9 silly lockFile fb9da861-typescript typescript
+10 silly lockFile fb9da861-typescript typescript
+11 verbose addNamed [ 'typescript', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile b598c0ef-typescript typescript@
+14 verbose lock typescript@ /home/edulix/.npm/b598c0ef-typescript.lock
+15 silly addNameRange { name: 'typescript', range: '*', hasData: false }
+16 verbose request where is /typescript
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 7020b7c6bb5c5e6c
+19 verbose url raw /typescript
+20 verbose url resolving [ 'https://registry.npmjs.org/', './typescript' ]
+21 verbose url resolved https://registry.npmjs.org/typescript
+22 verbose request where is https://registry.npmjs.org/typescript
+23 info trying registry request attempt 1 at 19:08:45
+24 http GET https://registry.npmjs.org/typescript
+25 http 200 https://registry.npmjs.org/typescript
+26 silly registry.get cb [ 200,
+26 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"1GT71JN5QHN888QM65CRKYF07"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '130340',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     date: 'Fri, 25 Sep 2015 17:08:13 GMT',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '32',
+26 silly registry.get     connection: 'keep-alive',
+26 silly registry.get     'x-served-by': 'cache-fra1233-FRA',
+26 silly registry.get     'x-cache': 'HIT',
+26 silly registry.get     'x-cache-hits': '1',
+26 silly registry.get     'x-timer': 'S1443200893.933386,VS0,VE0',
+26 silly registry.get     vary: 'Accept' } ]
+27 silly addNameRange number 2 { name: 'typescript', range: '*', hasData: true }
+28 silly addNameRange versions [ 'typescript',
+28 silly addNameRange   [ '0.8.0',
+28 silly addNameRange     '0.8.1',
+28 silly addNameRange     '0.8.1-1',
+28 silly addNameRange     '0.8.2',
+28 silly addNameRange     '0.8.3',
+28 silly addNameRange     '0.9.0',
+28 silly addNameRange     '0.9.0-1',
+28 silly addNameRange     '0.9.1',
+28 silly addNameRange     '0.9.1-1',
+28 silly addNameRange     '0.9.5',
+28 silly addNameRange     '0.9.7',
+28 silly addNameRange     '1.0.0',
+28 silly addNameRange     '1.0.1',
+28 silly addNameRange     '1.1.0-1',
+28 silly addNameRange     '1.3.0',
+28 silly addNameRange     '1.4.1',
+28 silly addNameRange     '1.5.0-alpha',
+28 silly addNameRange     '1.5.0-beta',
+28 silly addNameRange     '1.5.3',
+28 silly addNameRange     '1.6.0-dev.20150722.1',
+28 silly addNameRange     '1.6.0-dev.20150723',
+28 silly addNameRange     '1.6.0-dev.20150724',
+28 silly addNameRange     '1.6.0-dev.20150725',
+28 silly addNameRange     '1.6.0-dev.20150726',
+28 silly addNameRange     '1.6.0-dev.20150727',
+28 silly addNameRange     '1.6.0-dev.20150728',
+28 silly addNameRange     '1.6.0-dev.20150729',
+28 silly addNameRange     '1.6.0-dev.20150730',
+28 silly addNameRange     '1.6.0-dev.20150731',
+28 silly addNameRange     '1.6.0-dev.20150801',
+28 silly addNameRange     '1.6.0-dev.20150802',
+28 silly addNameRange     '1.6.0-dev.20150803',
+28 silly addNameRange     '1.6.0-dev.20150804',
+28 silly addNameRange     '1.6.0-dev.20150805',
+28 silly addNameRange     '1.6.0-dev.20150806',
+28 silly addNameRange     '1.6.0-dev.20150807',
+28 silly addNameRange     '1.6.0-dev.20150808',
+28 silly addNameRange     '1.6.0-dev.20150809',
+28 silly addNameRange     '1.6.0-dev.20150810',
+28 silly addNameRange     '1.6.0-dev.20150811',
+28 silly addNameRange     '1.6.0-dev.20150812',
+28 silly addNameRange     '1.6.0-dev.20150813',
+28 silly addNameRange     '1.6.0-dev.20150814',
+28 silly addNameRange     '1.6.0-dev.20150815',
+28 silly addNameRange     '1.6.0-dev.20150816',
+28 silly addNameRange     '1.6.0-dev.20150817',
+28 silly addNameRange     '1.6.0-dev.20150818',
+28 silly addNameRange     '1.6.0-dev.20150819',
+28 silly addNameRange     '1.6.0-dev.20150820',
+28 silly addNameRange     '1.6.0-dev.20150821',
+28 silly addNameRange     '1.6.0-dev.20150822',
+28 silly addNameRange     '1.6.0-dev.20150823',
+28 silly addNameRange     '1.6.0-dev.20150824',
+28 silly addNameRange     '1.6.0-dev.20150825',
+28 silly addNameRange     '1.7.0-dev.20150826',
+28 silly addNameRange     '1.7.0-dev.20150827',
+28 silly addNameRange     '1.7.0-dev.20150828',
+28 silly addNameRange     '1.7.0-dev.20150829',
+28 silly addNameRange     '1.7.0-dev.20150830',
+28 silly addNameRange     '1.7.0-dev.20150831',
+28 silly addNameRange     '1.7.0-dev.20150901',
+28 silly addNameRange     '1.7.0-dev.20150902',
+28 silly addNameRange     '1.6.0-beta',
+28 silly addNameRange     '1.7.0-dev.20150903',
+28 silly addNameRange     '1.7.0-dev.20150904',
+28 silly addNameRange     '1.6.0-dev.20150905',
+28 silly addNameRange     '1.6.0-dev.20150906',
+28 silly addNameRange     '1.6.0-dev.20150907',
+28 silly addNameRange     '1.6.0-dev.20150908',
+28 silly addNameRange     '1.6.0-dev.20150909',
+28 silly addNameRange     '1.6.0-dev.20150910',
+28 silly addNameRange     '1.6.0-dev.20150911',
+28 silly addNameRange     '1.6.0-dev.20150912',
+28 silly addNameRange     '1.6.0-dev.20150913',
+28 silly addNameRange     '1.6.0-dev.20150914',
+28 silly addNameRange     '1.6.0-dev.20150915',
+28 silly addNameRange     '1.7.0-dev.20150916',
+28 silly addNameRange     '1.6.2',
+28 silly addNameRange     '1.7.0-dev.20150917',
+28 silly addNameRange     '1.7.0-dev.20150918',
+28 silly addNameRange     '1.7.0-dev.20150919',
+28 silly addNameRange     '1.7.0-dev.20150920',
+28 silly addNameRange     '1.7.0-dev.20150921',
+28 silly addNameRange     '1.7.0-dev.20150922',
+28 silly addNameRange     '1.7.0-dev.20150923',
+28 silly addNameRange     '1.7.0-dev.20150924',
+28 silly addNameRange     '1.7.0-dev.20150925' ] ]
+29 verbose addNamed [ 'typescript', '1.6.2' ]
+30 verbose addNamed [ '1.6.2', '1.6.2' ]
+31 silly lockFile 380e6963-typescript-1-6-2 typescript@1.6.2
+32 verbose lock typescript@1.6.2 /home/edulix/.npm/380e6963-typescript-1-6-2.lock
+33 silly lockFile 03c86d0b--typescript-typescript-1-6-2-tgz https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz
+34 verbose lock https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz /home/edulix/.npm/03c86d0b--typescript-typescript-1-6-2-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz',
+35 verbose addRemoteTarball   '5b27254abeb111027cbf9450d3431bc5843191dd' ]
+36 info retry fetch attempt 1 at 19:09:14
+37 verbose fetch to= /tmp/npm-11696-macZX2sr/registry.npmjs.org/typescript/-/typescript-1.6.2.tgz
+38 http GET https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz
+39 http 200 https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz
+40 silly lockFile 03c86d0b--typescript-typescript-1-6-2-tgz https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz
+41 silly lockFile 03c86d0b--typescript-typescript-1-6-2-tgz https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz
+42 silly lockFile 380e6963-typescript-1-6-2 typescript@1.6.2
+43 silly lockFile 380e6963-typescript-1-6-2 typescript@1.6.2
+44 silly lockFile b598c0ef-typescript typescript@
+45 silly lockFile b598c0ef-typescript typescript@
+46 silly resolved [ { name: 'typescript',
+46 silly resolved     author: { name: 'Microsoft Corp.' },
+46 silly resolved     homepage: 'http://typescriptlang.org/',
+46 silly resolved     version: '1.6.2',
+46 silly resolved     license: 'Apache-2.0',
+46 silly resolved     description: 'TypeScript is a language for application scale JavaScript development',
+46 silly resolved     keywords: [ 'TypeScript', 'Microsoft', 'compiler', 'language', 'javascript' ],
+46 silly resolved     bugs: { url: 'https://github.com/Microsoft/TypeScript/issues' },
+46 silly resolved     repository:
+46 silly resolved      { type: 'git',
+46 silly resolved        url: 'https://github.com/Microsoft/TypeScript.git' },
+46 silly resolved     main: './lib/typescript.js',
+46 silly resolved     typings: './lib/typescript.d.ts',
+46 silly resolved     bin: { tsc: './bin/tsc', tsserver: './bin/tsserver' },
+46 silly resolved     engines: { node: '>=0.8.0' },
+46 silly resolved     devDependencies:
+46 silly resolved      { jake: 'latest',
+46 silly resolved        mocha: 'latest',
+46 silly resolved        chai: 'latest',
+46 silly resolved        browserify: 'latest',
+46 silly resolved        istanbul: 'latest',
+46 silly resolved        'mocha-fivemat-progress-reporter': 'latest',
+46 silly resolved        tslint: 'latest' },
+46 silly resolved     scripts:
+46 silly resolved      { pretest: 'jake tests',
+46 silly resolved        test: 'jake runtests',
+46 silly resolved        build: 'npm run build:compiler && npm run build:tests',
+46 silly resolved        'build:compiler': 'jake local',
+46 silly resolved        'build:tests': 'jake tests',
+46 silly resolved        clean: 'jake clean' },
+46 silly resolved     browser: { buffer: false, fs: false, os: false, path: false },
+46 silly resolved     gitHead: 'a44d8e76c68e7c685cef3d34943158021acd04e5',
+46 silly resolved     _id: 'typescript@1.6.2',
+46 silly resolved     _shasum: '5b27254abeb111027cbf9450d3431bc5843191dd',
+46 silly resolved     _from: 'typescript@',
+46 silly resolved     _npmVersion: '2.0.0',
+46 silly resolved     _npmUser: { name: 'typescript', email: 'typescript@microsoft.com' },
+46 silly resolved     maintainers: [ [Object] ],
+46 silly resolved     dist:
+46 silly resolved      { shasum: '5b27254abeb111027cbf9450d3431bc5843191dd',
+46 silly resolved        tarball: 'http://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz' },
+46 silly resolved     directories: {},
+46 silly resolved     _resolved: 'https://registry.npmjs.org/typescript/-/typescript-1.6.2.tgz' } ]
+47 info install typescript@1.6.2 into /usr/local/lib
+48 info installOne typescript@1.6.2
+49 verbose lib/node_modules/typescript unbuild
+50 verbose tar unpack /home/edulix/.npm/typescript/1.6.2/package.tgz
+51 silly lockFile 2d878377-ocal-lib-node-modules-typescript tar:///usr/local/lib/node_modules/typescript
+52 verbose lock tar:///usr/local/lib/node_modules/typescript /home/edulix/.npm/2d878377-ocal-lib-node-modules-typescript.lock
+53 silly lockFile 57d07db7-npm-typescript-1-6-2-package-tgz tar:///home/edulix/.npm/typescript/1.6.2/package.tgz
+54 verbose lock tar:///home/edulix/.npm/typescript/1.6.2/package.tgz /home/edulix/.npm/57d07db7-npm-typescript-1-6-2-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/typescript'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/typescript']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/typescript',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/typescript',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:107:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Linux 3.16.7-21-desktop
+59 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "typescript"
+60 error cwd /home/edulix/proyectos/edulix/blindpromise/blindpromise
+61 error node -v v0.10.31
+62 error npm -v 1.4.23
+63 error path /usr/local/lib/node_modules/typescript
+64 error fstream_path /usr/local/lib/node_modules/typescript
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/typescript'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:107:15)
+71 verbose exit [ 3, true ]

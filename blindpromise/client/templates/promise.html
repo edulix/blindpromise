@@ -1,0 +1,90 @@
+<template name="promise">
+  <div id="promise">
+    <h1>
+      {{#if released}}
+        {{_ "promise hidden"}}
+      {{else}}
+        {{_ "promise released"}}
+      {{/if}}
+      <a class="create-link">
+        {{_ "create link"}}
+      </a>
+    </h1>
+    <label>
+      {{_ "promise hash" }}
+    </label>
+    <div class="console hash selectall">
+      {{hash}}
+    </div>
+
+    <label class="time">
+      {{_ "promise creation time" createdAgo}}
+    </label>
+
+    {{#if released}}
+      <label>
+        {{_ "promise data"}}
+      </label>
+      <div class="console data selectall">
+        {{data}}
+      </div>
+
+      <label class="time">
+        {{_ "promise release time" releasedAgo}}
+      </label>
+
+      <label>
+        {{_ "promise randomness"}}
+      </label>
+      <div class="console randomness selectall">
+        {{randomness}}
+      </div>
+
+      <label>
+        {{_ "promise verify-label"}}
+      </label>
+      <div class="console verify-shell selectall">
+        {{_ "promise verify-shell" data randomness hash}}
+      </div>
+    {{/if}}
+
+    {{#if canRelease}}
+      <button type="submit" name="submit" class="btn btn-default btn-block release">
+        {{_ "promise release"}}
+      </button>
+    {{/if}}
+  </div>
+</template>
+<!--
+template(name="promise")
+  label
+    #{_ "promise hash"}
+  div(class="console hash")
+    #{hash}
+
+  label(class="time")
+    #{_ "promise creation time"}
+    // {{moment(createdAt).from(moment())}}
+
+  +if released
+    label
+      #{_ "promise data"}
+    div(class="console data")
+      #{data}
+
+    label(class="time")
+      #{_ "promise release time"}
+      // {{moment(releasedAt).from(moment()}}
+
+    label #{_ "promise randomness"}
+    div(class="console randomness")
+      #{randomness}
+
+    label
+      #{_ "promise verify-label"}
+    div(class="console verify-shell")
+      #{_ "promise verify-shell"}
+
+  +if canRelease
+    button(type="submit" name="submit" class="btn btn-default")
+      #{_ "promise release"}-->
