@@ -82,10 +82,28 @@ Template.create.events({
   },
 
   'click .clear-public': function(event, template) {
-    Session.clear("publicPromises");
+
+    BootstrapModalPrompt.prompt({
+      title: TAPi18n.__("confirm public clear"),
+      content: TAPi18n.__("confirm public clear content"),
+      btnOkText: TAPi18n.__("confirm public clear button")
+    }, function(result) {
+      if (result) {
+        Session.clear("publicPromises");
+      }
+    });
   },
 
   'click .clear-private': function(event, template) {
-    Session.clear("privatePromises");
+
+    BootstrapModalPrompt.prompt({
+      title: TAPi18n.__("confirm private clear"),
+      content: TAPi18n.__("confirm private clear content"),
+      btnOkText: TAPi18n.__("confirm private clear button")
+    }, function(result) {
+      if (result) {
+        Session.clear("privatePromises");
+      }
+    });
   }
 });

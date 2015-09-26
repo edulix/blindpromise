@@ -30,5 +30,17 @@
   "promise verify-label2": "b) Alternatively, the following alternative command allows you to output the hashed value with python:",
   "promise verify-shell2": "echo -n $'%s' > /tmp/hash; python -c $'import hashlib; print(hashlib.sha256(open(\"/tmp/hash\").read()).hexdigest())'",
   "promise verify-label3": "c) Or use <a href=\"http://www.xorbin.com/tools/sha256-hash-calculator\" target=\"_blank\">some</a> <a href=\"http://hash.online-convert.com/sha256-generator\" target=\"_blank\">third</a> <a href=\"http://www.convertstring.com/Hash/SHA256\" target=\"_blank\">party</a> <a href=\"https://defuse.ca/checksums.htm\" target=\"_blank\">sha256sum</a> online web calculator, pasting the following data:",
-  "promise release": "Release promise data"
+  "promise release": "Release promise data",
+
+  "confirm release": "Promise data release",
+  "confirm release content": "Do you really want to RELEASE the following promised data? ",
+  "confirm release button": "Yes, I want to RELEASE the promise",
+
+  "confirm public clear": "Confirm clear of public data",
+  "confirm public clear content": "Do you really want to clear your list of released promises?",
+  "confirm private clear button": "Yes, I want to ERASE my list of RELEASED promises",
+
+  "confirm private clear": "Confirm clear of private data",
+  "confirm private clear content": "Do you really want to clear your list of unreleased promises?",
+  "confirm private clear button": "Yes, I want to ERASE my list of UNRELEASED promises"
 }

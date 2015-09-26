@@ -72,25 +72,34 @@ Template.promise.events({
 
     var secrets = Session.get(this.hash);
     var hash = this.hash;
-    Meteor.call("releasePromise", this.hash, secrets.data, secrets.randomness,
-      function(error, ret) {
-        if (error !== undefined) {
-          return;
-        }
 
-        // remove from private
-        Session.setDefaultPersistent("privatePromises", []);
-        var privatePromises = Session.get("privatePromises");
-        privatePromises.splice(privatePromises.indexOf(hash), 1);
-        Session.setPersistent("privatePromises", privatePromises);
+    BootstrapModalPrompt.prompt({
+      title: TAPi18n.__("confirm release"),
+      content: TAPi18n.__("confirm release content") + secrets.data,
+      btnOkText: TAPi18n.__("confirm release button")
+    }, function(result) {
+      if (result) {
+        Meteor.call("releasePromise", hash, secrets.data, secrets.randomness,
+          function(error, ret) {
+            if (error !== undefined) {
+              return;
+            }
 
-        // add to public
-        Session.setDefaultPersistent("publicPromises", []);
-        var publicPromises = Session.get("publicPromises");
-        publicPromises.push(hash);
-        Session.setPersistent("publicPromises", publicPromises);
+            // remove from private
+            Session.setDefaultPersistent("privatePromises", []);
+            var privatePromises = Session.get("privatePromises");
+            privatePromises.splice(privatePromises.indexOf(hash), 1);
+            Session.setPersistent("privatePromises", privatePromises);
+
+            // add to public
+            Session.setDefaultPersistent("publicPromises", []);
+            var publicPromises = Session.get("publicPromises");
+            publicPromises.push(hash);
+            Session.setPersistent("publicPromises", publicPromises);
+          }
+        );
       }
-    );
+    });
   },
 
   'click .create-link': function(event, template) {
