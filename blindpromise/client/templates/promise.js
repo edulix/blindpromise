@@ -16,13 +16,9 @@
  */
 // Implement bash string escaping.
 var safePattern =    /^[a-z0-9_\/\-.,?:@#%^+=\[\]]*$/i;
-var safeishPattern = /^[a-z0-9_\/\-.,?:@#%^+=\[\]{}|&()<>; *']*$/i;
 function bashEscape(arg) {
   // These don't need quoting
   if (safePattern.test(arg)) return arg;
-
-  // These are fine wrapped in double quotes using weak escaping.
-  if (safeishPattern.test(arg)) return '"' + arg + '"';
 
   // Otherwise use strong escaping with single quotes
   return arg.replace(/'+/g, function (val) {

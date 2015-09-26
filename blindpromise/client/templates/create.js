@@ -25,7 +25,9 @@ var getPromises = function(key) {
   var promises = Session.get(key);
   return _.map(promises, function(hash) {
       var promise = Session.get(hash);
-      promise.hash = hash;
+      if (promise !== undefined) {
+        promise.hash = hash;
+      }
       return promise;
     });
 };
@@ -49,7 +51,7 @@ Template.create.events({
     event.preventDefault();
 
     // private data
-    var data = template.$('[name=data]').val();
+    var data = template.$('[name=data]').val().replace(/[\n\t]/g, " ");
 
     // the randomness is 64 characters, just like sha256
     var randomness = Random.hexString(64);
