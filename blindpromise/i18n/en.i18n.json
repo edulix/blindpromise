@@ -5,11 +5,11 @@
   "create submit": "Create",
 
   "list promises": "My unreleased promises",
-  "list promises empty": "I have no promise pending release.",
+  "list promises empty": "I have no pending promise to release.",
   "clear private promises": "Clear private promises",
 
   "list public promises": "My released promises",
-  "list public promises empty": "I no promise released.",
+  "list public promises empty": "I haven't released any promise yet.",
   "clear public promises": "Clear public promises",
 
   "create link": "Create new promise | List my promises",
