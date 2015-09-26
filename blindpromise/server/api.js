@@ -27,10 +27,6 @@ Meteor.methods({
       // constant time comparison for security because the saved hash is not
       // secret
       var promise = Promises.findOne({hash: hash, released: false});
-      console.log(promise);
-      console.log(finalData);
-      console.log(calculatedHash);
-      console.log(hash);
       if (promise === undefined || calculatedHash != hash) {
         throw new Meteor.Error("not-authorized");
       }
