@@ -33,6 +33,21 @@ function bashEscape(arg) {
   });
 }
 
+function canRelease() {
+  return !this.released && !Session.equals(this.hash, undefined);
+}
+
+function canForget() {
+  Session.setDefaultPersistent("publicPromises", []);
+  var publicPromises = Session.get("publicPromises");
+
+  Session.setDefaultPersistent("privatePromises", []);
+  var privatePromises = Session.get("privatePromises");
+
+  // check that we can forget it
+  return (publicPromises.indexOf(this.hash) !== -1 || privatePromises.indexOf(this.hash) !== -1);
+}
+
 Template.promise.helpers({
   createdAgo: function() {
     return moment(this.createdAt).from(moment());
@@ -61,9 +76,8 @@ Template.promise.helpers({
     return bashEscape(finalData);
   },
 
-  canRelease: function() {
-    return !this.released && !Session.equals(this.hash, undefined);
-  }
+  canRelease: canRelease,
+  canForget: canForget
 });
 
 Template.promise.events({
@@ -102,10 +116,6 @@ Template.promise.events({
     });
   },
 
-  'click .create-link': function(event, template) {
-      Router.go('/');
-  },
-
   'click .selectall': function(event, template) {
     function selectElementContents(el) {
       var range = document.createRange();
@@ -116,5 +126,49 @@ Template.promise.events({
     }
 
     selectElementContents(event.target);
+  },
+
+  'click .forget-link': function(event, template)
+  {
+    var publicPromises = Session.get("publicPromises");
+    var privatePromises = Session.get("privatePromises");
+    console.log("publicPromises = ");
+    console.log(publicPromises);
+    console.log("privatePromises = ");
+    console.log(privatePromises);
+
+    var hash = this.hash;
+    var released = this.released;
+    var publicHashIndex = publicPromises.indexOf(hash);
+    var privateHashIndex = privatePromises.indexOf(hash);
+
+    // check that we can forget it
+    if (publicHashIndex === -1 && privateHashIndex === -1) {
+      console.log("hash not found");
+      return;
+    }
+
+    BootstrapModalPrompt.prompt({
+      title: TAPi18n.__("confirm forget"),
+      content: TAPi18n.__("confirm forget content"),
+      btnOkText: TAPi18n.__("confirm forget button")
+    }, function(result) {
+      if (result) {
+        console.log("forgetting");
+        if (released) {
+          console.log("released, so removing from publicPromises");
+          console.log(publicPromises);
+          publicPromises.splice(publicHashIndex, 1);
+          Session.setPersistent("publicPromises", publicPromises);
+          console.log(publicPromises);
+        } else {
+          console.log("not released, so removing from privatePromises");
+          console.log(privatePromises);
+          privatePromises.splice(privateHashIndex, 1);
+          Session.setPersistent("privatePromises", privatePromises);
+          console.log(privatePromises);
+        }
+      }
+    });
   }
 });

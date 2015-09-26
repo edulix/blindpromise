@@ -6,9 +6,14 @@
       {{else}}
         {{_ "promise hidden"}}
       {{/if}}
-      <a class="create-link">
-        {{_ "create link"}}
-      </a>
+      <a href="/">{{_ "promise create link"}}</a>
+      <span>|</span>
+      <a href="/">{{_ "promise list link"}}</a>
+
+      {{#if canForget}}
+        <span>|</span>
+        <a class="forget-link">{{_ "promise forget link"}}</a>
+      {{/if}}
     </h1>
 
     {{#if released}}

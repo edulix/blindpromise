@@ -14,7 +14,9 @@
   "list public promises empty": "I haven't released any promise yet.",
   "clear public promises": "Clear public promises",
 
-  "create link": "Create new promise | List my promises",
+  "promise create link": "Create promise",
+  "promise list link": "List promises",
+  "promise forget link": "Forget",
   "promise unreleased data header": "Unreleased promise data",
   "promise hidden": "Hidden promise",
   "promise description": "Description",
@@ -42,5 +44,9 @@
 
   "confirm private clear": "Confirm clear of private data",
   "confirm private clear content": "Do you really want to clear your list of unreleased promises?",
-  "confirm private clear button": "Yes, I want to ERASE my list of UNRELEASED promises"
+  "confirm private clear button": "Yes, I want to ERASE my list of UNRELEASED promises",
+
+  "confirm forget": "Confirm forget",
+  "confirm forget content": "Do you really want to remove this promise from your lists of promises?",
+  "confirm forget button": "Yes, I want to ERASE this promise from my lists of promises"
 }
