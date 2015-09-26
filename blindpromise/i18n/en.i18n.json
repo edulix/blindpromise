@@ -1,7 +1,7 @@
 {
   "create header": "Create a Blind promise",
   "create data": "You can use this to create a verifiable blind promise. Write some text you want to commit to so that it can't be changed once commited, but don't want to reveal until later. We will create an url for your promise, which will only show a commitment hash. When you choose to reveal the data, the data will be shown in a manner that a third party will be able to verify that it hasn't been modified since the hash was created.",
-  "create textarea": "Write your data here. Example: The next president will be Leonardo aa Vinci",
+  "create textarea": "Write your data here. Example: The next president will be Leonardo da Vinci",
   "create description": "Description example: Who will be elected president in the upcoming elections?",
   "create description label": "Description (optional, public, 140 chars max):",
   "create submit": "Create",
