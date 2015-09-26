@@ -31,6 +31,26 @@ Template.promise.helpers({
     return Session.get(this.hash).randomness;
   },
 
+  escapedFinalDataSQ: function() {
+    var finalData = this.data + ";" + "" + this.randomness;
+    return finalData.replace(/'/g, "\\'");
+  },
+  escapedFinalDataDQ: function() {
+    var finalData = this.data + ";" + "" + this.randomness;
+    return finalData.replace(/'/g, "\\'").replace(/"/g, '\\\\"');
+  },
+
+  escapedFinalDataPrivateSQ: function() {
+    var priv = Session.get(this.hash);
+    var finalData = priv.data + ";" + "" + priv.randomness;
+    return finalData.replace(/'/g, "\\'");
+  },
+  escapedFinalDataPrivateDQ: function() {
+    var priv = Session.get(this.hash);
+    var finalData = priv.data + ";" + "" + priv.randomness;
+    return finalData.replace(/'/g, "\\'").replace(/"/g, '\\\\"');
+  },
+
   canRelease: function() {
     return !this.released && !Session.equals(this.hash, undefined);
   }

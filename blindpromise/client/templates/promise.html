@@ -47,16 +47,12 @@
       <label>
         {{_ "promise verify-label"}}
       </label>
-      <div class="console verify-shell selectall">
-        {{_ "promise verify-shell" data randomness hash}}
-      </div>
+      <div class="console verify-shell selectall">{{_ "promise verify-shell" escapedFinalDataSQ hash}}</div>
 
       <label>
         {{_ "promise verify-label2"}}
       </label>
-      <div class="console verify-shell selectall">
-        {{_ "promise verify-shell2" data randomness hash}}
-      </div>
+      <div class="console verify-shell selectall">{{_ "promise verify-shell2" escapedFinalDataDQ hash}}</div>
 
       <label>
         {{{_ "promise verify-label3"}}}
@@ -94,16 +90,12 @@
         <label>
           {{_ "promise verify-label"}}
         </label>
-        <div class="console verify-shell selectall">
-          {{_ "promise verify-shell" dataPrivate randomnessPrivate hash}}
-        </div>
+        <div class="console verify-shell selectall">{{_ "promise verify-shell" escapedFinalDataPrivateSQ hash}}</div>
 
         <label>
           {{_ "promise verify-label2"}}
         </label>
-        <div class="console verify-shell selectall">
-          {{_ "promise verify-shell2" dataPrivate randomnessPrivate hash}}
-        </div>
+        <div class="console verify-shell selectall">{{_ "promise verify-shell2" escapedFinalDataPrivateDQ hash}}</div>
 
         <label>
           {{{_ "promise verify-label3"}}}
