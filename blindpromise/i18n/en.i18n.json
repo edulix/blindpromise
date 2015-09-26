@@ -25,7 +25,7 @@
   "promise verify-label": "a) You can verify the hash independently executing the following command in a bash shell in Linux/Unix/Mac OS X, and the command should output '/tmp/hash: OK'",
   "promise verify-shell": "echo -n $'%s' > /tmp/hash; echo '%s  /tmp/hash' | sha256sum -c",
   "promise verify-label2": "b) Alternatively, the following alternative command allows you to output the hashed value with python:",
-  "promise verify-shell2": "python -c $'import hashlib; print(hashlib.sha256(b\"%s\").hexdigest())'",
+  "promise verify-shell2": "echo -n $'%s' > /tmp/hash; python -c $'import hashlib; print(hashlib.sha256(open(\"/tmp/hash\").read()).hexdigest())'",
   "promise verify-label3": "c) Or use <a href=\"http://www.xorbin.com/tools/sha256-hash-calculator\" target=\"_blank\">some</a> <a href=\"http://hash.online-convert.com/sha256-generator\" target=\"_blank\">third</a> <a href=\"http://www.convertstring.com/Hash/SHA256\" target=\"_blank\">party</a> <a href=\"https://defuse.ca/checksums.htm\" target=\"_blank\">sha256sum</a> online web calculator, pasting the following data:",
   "promise release": "Release promise data"
 }

@@ -14,6 +14,29 @@
  *
  * @author Eduardo Robles Elvira <edulix AT agoravoting DOT com>
  */
+// Implement bash string escaping.
+var safePattern =    /^[a-z0-9_\/\-.,?:@#%^+=\[\]]*$/i;
+var safeishPattern = /^[a-z0-9_\/\-.,?:@#%^+=\[\]{}|&()<>; *']*$/i;
+function bashEscape(arg) {
+  // These don't need quoting
+  if (safePattern.test(arg)) return arg;
+
+  // These are fine wrapped in double quotes using weak escaping.
+  if (safeishPattern.test(arg)) return '"' + arg + '"';
+
+  // Otherwise use strong escaping with single quotes
+  return arg.replace(/'+/g, function (val) {
+    // But we need to interpolate single quotes efficiently
+
+    // One or two can simply be '\'' -> ' or '\'\'' -> ''
+    if (val.length < 3) return "'" + val.replace(/'/g, "\\'") + "'";
+
+    // But more in a row, it's better to wrap in double quotes '"'''''"' -> '''''
+    return "'\"" + val + "\"'";
+
+  });
+}
+
 Template.promise.helpers({
   createdAgo: function() {
     return moment(this.createdAt).from(moment());
@@ -31,24 +54,15 @@ Template.promise.helpers({
     return Session.get(this.hash).randomness;
   },
 
-  escapedFinalDataSQ: function() {
+  escapedFinalData: function() {
     var finalData = this.data + ";" + "" + this.randomness;
-    return finalData.replace(/'/g, "\\'");
-  },
-  escapedFinalDataDQ: function() {
-    var finalData = this.data + ";" + "" + this.randomness;
-    return finalData.replace(/'/g, "\\'").replace(/"/g, '\\\\"');
+    return bashEscape(finalData);
   },
 
-  escapedFinalDataPrivateSQ: function() {
+  escapedFinalDataPrivate: function() {
     var priv = Session.get(this.hash);
     var finalData = priv.data + ";" + "" + priv.randomness;
-    return finalData.replace(/'/g, "\\'");
-  },
-  escapedFinalDataPrivateDQ: function() {
-    var priv = Session.get(this.hash);
-    var finalData = priv.data + ";" + "" + priv.randomness;
-    return finalData.replace(/'/g, "\\'").replace(/"/g, '\\\\"');
+    return bashEscape(finalData);
   },
 
   canRelease: function() {
