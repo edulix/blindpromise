@@ -19,7 +19,32 @@
  *
  * @author Eduardo Robles Elvira <edulix AT agoravoting DOT com>
  */
-Template.create .events({
+
+var getPromises = function(key) {
+  Session.setDefaultPersistent(key, []);
+  var promises = Session.get(key);
+  return _.map(promises, function(hash) {
+      var promise = Session.get(hash);
+      promise.hash = hash;
+      return promise;
+    });
+};
+
+Template.create.helpers({
+  privatePromises: function() { return getPromises("privatePromises"); },
+
+  hasPrivatePromises: function() {
+    return getPromises("privatePromises").length > 0;
+  },
+
+  publicPromises: function() { return getPromises("publicPromises"); },
+
+  hasPublicPromises: function() {
+    return getPromises("publicPromises").length > 0;
+  }
+});
+
+Template.create.events({
   'submit': function(event, template) {
     event.preventDefault();
 
@@ -27,14 +52,20 @@ Template.create .events({
     var data = template.$('[name=data]').val();
 
     // the randomness is 64 characters, just like sha256
-    var randomness = Random.secret(64);
+    var randomness = Random.hexString(64);
 
     // hash the data
     var finalData = data + ";" + randomness;
-    var hash = SHA256(finalData);
+    var hash = CryptoJS.SHA256(finalData).toString();
 
     // save private data
     Session.setPersistent(hash, {data: data, randomness: randomness});
+
+    // we also save a list of our promises to be able to list them
+    Session.setDefaultPersistent("privatePromises", []);
+    var privatePromises = Session.get("privatePromises");
+    privatePromises.push(hash);
+    Session.setPersistent("privatePromises", privatePromises);
 
     // register the promise, and once that's done, redirect to it
     Meteor.call("registerPromise", hash, function(error, result) {
@@ -45,5 +76,13 @@ Template.create .events({
 
       Router.go('/promise/' + hash);
     });
+  },
+
+  'click .clear-public': function(event, template) {
+    Session.clear("publicPromises");
+  },
+
+  'click .clear-private': function(event, template) {
+    Session.clear("privatePromises");
   }
 });

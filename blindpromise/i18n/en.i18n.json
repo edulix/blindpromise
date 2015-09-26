@@ -1,10 +1,19 @@
 {
   "create header": "Create a Blind promise",
-  "create data": "You can use this to create a verifiable blind promise. Write some text you want to commit to, but you want to reveal later. We will create an url for your promise, which will only show a commitment hash, but when you choose to reveal the data, the data will be shown in a manner that a third party will be able to verify that it hasn't been modified since the hash was created.",
+  "create data": "You can use this to create a verifiable blind promise. Write some text you want to commit to so that it can't be changed once commited, but don't want to reveal until later. We will create an url for your promise, which will only show a commitment hash. When you choose to reveal the data, the data will be shown in a manner that a third party will be able to verify that it hasn't been modified since the hash was created.",
   "create textarea": "Write your data here",
   "create submit": "Create",
 
-  "create link": "Create new promise",
+  "list promises": "My unreleased promises",
+  "list promises empty": "I have no promise pending release.",
+  "clear private promises": "Clear private promises",
+
+  "list public promises": "My released promises",
+  "list public promises empty": "I no promise released.",
+  "clear public promises": "Clear public promises",
+
+  "create link": "Create new promise | List my promises",
+  "promise unreleased data header": "Unreleased promise data",
   "promise hidden": "Hidden promise",
   "promise released": "Released promise",
   "promise hash": "Hash:",
@@ -12,7 +21,11 @@
   "promise data": "Data:",
   "promise release time": "Released %s",
   "promise randomness": "Randomness:",
-  "promise verify-label": "You can verify the hash independently executing the following command in a bash shell in Linux/Unix/Mac OS X, and the command should output '/tmp/hash: OK'",
-  "promise verify-shell": "echo '%s;%s' > /tmp/hash; echo '%s  /tmp/hash' | sha256sum -c",
+  "promise verify header": "Verification",
+  "promise verify-label": "a) You can verify the hash independently executing the following command in a bash shell in Linux/Unix/Mac OS X, and the command should output '/tmp/hash: OK'",
+  "promise verify-shell": "echo -n '%s;%s' > /tmp/hash; echo '%s  /tmp/hash' | sha256sum -c",
+  "promise verify-label2": "b) Alternatively, the following alternative command allows you to output the hashed value with python:",
+  "promise verify-shell2": "python -c \"import hashlib; print(hashlib.sha256(b'%s;%s').hexdigest())\"",
+  "promise verify-label3": "c) Or use <a href=\"http://www.xorbin.com/tools/sha256-hash-calculator\" target=\"_blank\">some</a> <a href=\"http://hash.online-convert.com/sha256-generator\" target=\"_blank\">third</a> <a href=\"http://www.convertstring.com/Hash/SHA256\" target=\"_blank\">party</a> <a href=\"https://defuse.ca/checksums.htm\" target=\"_blank\">sha256sum</a> online web calculator, pasting the following data:",
   "promise release": "Release promise data"
 }

@@ -21,7 +21,7 @@ Meteor.methods({
     try {
       // hash the data
       var finalData = data + ";" + randomness;
-      var calculatedHash = SHA256(finalData);
+      var calculatedHash = CryptoJS.SHA256(finalData).toString();
 
       // NOTE: even though we are comparing hashes, we don't need to use a
       // constant time comparison for security because the saved hash is not

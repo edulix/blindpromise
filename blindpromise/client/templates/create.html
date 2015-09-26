@@ -1,27 +1,70 @@
 <template name="create">
-  <form id="create">
-    <div class="form-group">
-      <h1>
-        {{_ "create header"}}
-      </h1>
-      <label class="data-desc">
-        {{_ "create data"}}
-      </label>
-      <textarea name="data" class="input-block" placeholder="{{_ 'create textarea'}}"></textarea>
+  <div id="create">
+    <form>
+      <div class="form-group">
+        <h1>
+          {{_ "create header"}}
+        </h1>
+        <label class="data-desc">
+          {{_ "create data"}}
+        </label>
+        <textarea name="data" class="input-block" placeholder="{{_ 'create textarea'}}"></textarea>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-success btn-block">
+          {{_ 'create submit'}}
+        </button>
+      </div>
+    </form>
+
+    <div class="list-promises">
+      <h2>
+        {{_ "list promises"}}
+        <a class="clear-private">
+          {{_ "clear private promises"}}
+        </a>
+      </h2>
+      {{#if hasPrivatePromises}}
+        <ul>
+          {{#each privatePromises}}
+            <li>
+              <a class="private-promise" href="/promise/{{hash}}">
+                {{hash}}: {{data}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>
+          {{_ "list promises empty"}}
+        </p>
+      {{/if}}
     </div>
 
-    <div class="form-group">
-      <button type="submit" name="submit" class="btn btn-default btn-block">
-        {{_ 'create submit'}}
-      </button>
+    <div class="list-promises">
+      <h2>
+        {{_ "list public promises"}}
+        <a class="clear-public">
+          {{_ "clear public promises"}}
+        </a>
+      </h2>
+      {{#if hasPublicPromises}}
+        <ul>
+          {{#each publicPromises}}
+            <li>
+              <a class="private-promise" href="/promise/{{hash}}">
+                <span>{{hash}}</span> {{data}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>
+          {{_ "list public promises empty"}}
+        </p>
+      {{/if}}
     </div>
-  </form>
+
+  </div>
 </template>
-<!--template(name="create")
-  form(id="create")
-    div(class="form-group")
-      textarea(name="data" class="input-block" placeholder="#{dataPlaceHolder}")
-
-    div(class="form-group")
-      button(type="submit" name="submit" class="btn btn-default btn-block")
-        #{submitI18n}-->

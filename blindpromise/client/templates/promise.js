@@ -16,13 +16,19 @@
  */
 Template.promise.helpers({
   createdAgo: function() {
-    console.log("createdAgo, createdAt=");
-    console.log(this.createdAt);
     return moment(this.createdAt).from(moment());
   },
 
   releasedAgo: function() {
     return moment(this.releasedAt).from(moment());
+  },
+
+  dataPrivate: function() {
+    return Session.get(this.hash).data;
+  },
+
+  randomnessPrivate: function() {
+    return Session.get(this.hash).randomness;
   },
 
   canRelease: function() {
@@ -35,7 +41,26 @@ Template.promise.events({
     event.preventDefault();
 
     var secrets = Session.get(this.hash);
-    Meteor.call("releasePromise", this.hash, secrets.data, secrets.randomness);
+    var hash = this.hash;
+    Meteor.call("releasePromise", this.hash, secrets.data, secrets.randomness,
+      function(error, ret) {
+        if (error !== undefined) {
+          return;
+        }
+
+        // remove from private
+        Session.setDefaultPersistent("privatePromises", []);
+        var privatePromises = Session.get("privatePromises");
+        privatePromises.splice(privatePromises.indexOf(hash), 1);
+        Session.setPersistent("privatePromises", privatePromises);
+
+        // add to public
+        Session.setDefaultPersistent("publicPromises", []);
+        var publicPromises = Session.get("publicPromises");
+        publicPromises.push(hash);
+        Session.setPersistent("publicPromises", publicPromises);
+      }
+    );
   },
 
   'click .create-link': function(event, template) {
