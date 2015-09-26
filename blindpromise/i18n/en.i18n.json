@@ -17,7 +17,7 @@
   "create link": "Create new promise | List my promises",
   "promise unreleased data header": "Unreleased promise data",
   "promise hidden": "Hidden promise",
-  "promise description": "Description",
+  "promise description": "Description (140 chars max)",
   "promise released": "Released promise",
   "promise hash": "Hash:",
   "promise creation time": "Created %s",
