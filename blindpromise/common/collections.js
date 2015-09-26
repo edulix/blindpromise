@@ -15,6 +15,12 @@ Schemas.Promise = new SimpleSchema({
     regEx: /^[a-f0-9A-F]{64}$/
   },
 
+  description: {
+    type: String,
+    max: 140,
+    optional: true
+  },
+
   // data is optional because is only set when the promise is released
   data: {
     type: String,

@@ -52,6 +52,7 @@ Template.create.events({
 
     // private data
     var data = template.$('[name=data]').val().replace(/[\n\t]/g, " ");
+    var description = template.$('[name=description]').val().replace(/[\n\t]/g, " ");
 
     // the randomness is 64 characters, just like sha256
     var randomness = Random.hexString(64);
@@ -61,7 +62,7 @@ Template.create.events({
     var hash = CryptoJS.SHA256(finalData).toString();
 
     // save private data
-    Session.setPersistent(hash, {data: data, randomness: randomness});
+    Session.setPersistent(hash, {data: data, randomness: randomness, description: description});
 
     // we also save a list of our promises to be able to list them
     Session.setDefaultPersistent("privatePromises", []);
@@ -70,7 +71,7 @@ Template.create.events({
     Session.setPersistent("privatePromises", privatePromises);
 
     // register the promise, and once that's done, redirect to it
-    Meteor.call("registerPromise", hash, function(error, result) {
+    Meteor.call("registerPromise", hash, description, function(error, result) {
       if (error !== undefined) {
         console.log("something happened!");
         console.log(error);

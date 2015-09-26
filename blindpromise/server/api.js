@@ -1,12 +1,13 @@
 Meteor.methods({
 
   /**
-   * Inserts a new promise, only registering the hash.
+   * Inserts a new promise, only registering the hash and an optional description.
    */
-  registerPromise: function (hash) {
+  registerPromise: function (hash, description) {
     try {
       Promises.insert({
         hash: hash,
+        description: description,
         released: false
       });
     } catch(e) {

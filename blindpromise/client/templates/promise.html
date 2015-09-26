@@ -10,6 +10,19 @@
         {{_ "create link"}}
       </a>
     </h1>
+
+    {{#if released}}
+    {{else}}
+      {{#if description}}
+        <label>
+          {{_ "promise description" }}
+        </label>
+        <div class="console hash selectall">
+          {{description}}
+        </div>
+      {{/if}}
+    {{/if}}
+
     <label>
       {{_ "promise hash" }}
     </label>
@@ -22,6 +35,18 @@
     </label>
 
     {{#if released}}
+
+      {{#if released}}
+        {{#if description}}
+          <label>
+            {{_ "promise description" }}
+          </label>
+          <div class="console hash selectall">
+            {{description}}
+          </div>
+        {{/if}}
+      {{/if}}
+
       <label>
         {{_ "promise data"}}
       </label>

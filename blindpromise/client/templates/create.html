@@ -5,10 +5,18 @@
         <h1>
           {{_ "create header"}}
         </h1>
+
         <label class="data-desc">
           {{_ "create data"}}
         </label>
         <textarea name="data" class="input-block" placeholder="{{_ 'create textarea'}}"></textarea>
+
+
+        <label class="data-desc">
+          {{_ "create description label"}}
+        </label>
+        <textarea name="description" class="input-block" placeholder="{{_ 'create description'}}"></textarea>
+
       </div>
 
       <div class="form-group">
@@ -30,7 +38,7 @@
           {{#each privatePromises}}
             <li>
               <a class="private-promise" href="/promise/{{hash}}">
-                <span class="red">{{hash}}</span> {{data}}
+                <span class="red">{{hash}}</span> {{description}} <strong>{{data}}</strong>
               </a>
             </li>
           {{/each}}
@@ -54,7 +62,7 @@
           {{#each publicPromises}}
             <li>
               <a class="private-promise" href="/promise/{{hash}}">
-                <span>{{hash}}</span> {{data}}
+                <span>{{hash}}</span> {{description}} <strong>{{data}}</strong>
               </a>
             </li>
           {{/each}}
