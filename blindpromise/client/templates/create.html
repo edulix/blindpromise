@@ -9,13 +9,13 @@
         <label class="data-desc">
           {{{_ "create description label"}}}
         </label>
-        <input type="text" maxlength="140" name="description" class="input-block public-desc" placeholder="{{_ 'create description'}}" />
+        <input type="text" maxlength="140" name="description" class="input-block public-desc" value="{{ d }}" placeholder="{{_ 'create description'}}" />
 
         <div class="private-input">
           <label class="data-desc">
             {{_ "create data"}}
           </label>
-          <textarea name="data" class="input-block" placeholder="{{_ 'create textarea'}}"></textarea>
+          <textarea name="data" class="input-block" placeholder="{{_ 'create textarea'}}">{{ t }}</textarea>
         </div>
 
       </div>

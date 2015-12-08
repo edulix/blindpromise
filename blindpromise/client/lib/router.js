@@ -1,6 +1,20 @@
 Router.configure({ layoutTemplate: 'AppLayout' });
 
-Router.route('/', {template: "create"});
+Router.route(
+  '/',
+  function() {
+    this.render('create', {
+      data: function() {
+        console.log("this.params = ");
+        console.log(this.params.query);
+        return {
+          d: this.params.query.d,
+          t: this.params.query.t
+        };
+      }
+    });
+  }
+);
 
 Router.route(
   '/promise/:_hash',
